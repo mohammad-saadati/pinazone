@@ -1,14 +1,26 @@
-export default function Home({ data }) {
-  console.log(data.photos[0].id)
+import { HomeProps } from "../interfaces/api";
+
+export default function Home({ data }: HomeProps) {
+  if (!data.photos) return <div>request failed</div>;
   return <div>{data.photos[0].id}</div>;
 }
 
 export async function getStaticProps() {
-  const res = await fetch("http://localhost:3000/api/home");
+  try {
+    const res = await fetch("http://localhost:3000/api/home");
 
-  const data = await res.json();
+    const data = await res.json();
 
-  return {
-    props: { data },
-  };
+    return {
+      props: { data },
+    };
+  } catch (error) {
+    console.error("Fetch error:", error);
+
+    return {
+      props: {
+        data: {},
+      },
+    };
+  }
 }
