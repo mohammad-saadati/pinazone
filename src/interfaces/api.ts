@@ -1,5 +1,6 @@
 export interface HomeProps {
-  data: {
-    photos: { id: string }[];
-  };
+  data: photos[];
+}
+interface photos {
+  id: string;
 }
