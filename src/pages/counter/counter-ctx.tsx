@@ -11,7 +11,7 @@ const CounterContextProvider = ({ children }) => {
 };
 
 const AddoneButton = () => {
-  const [, setCounter] = useContext(CounterContext);
+  const [, setCounter] =  (CounterContext);
   return (
     <div>
       <button onClick={() => setCounter((v) => v + 1)}>Add one</button>
