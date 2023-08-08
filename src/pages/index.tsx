@@ -7,22 +7,22 @@ export default function Home({ data }: HomeProps) {
   return <div>{data[0]?.id}</div>;
 }
 
-export async function getStaticProps() {
-  try {
-    const res = await fetch("https://fake-api-roan.vercel.app/photos", {});
-    const data = await res.json();
-    console.log("***", data);
+// export async function getStaticProps() {
+  // try {
+  //   const res = await fetch("https://fake-api-roan.vercel.app/photos", {});
+  //   const data = await res.json();
+  //   console.log("***", data);
 
-    return {
-      props: { data },
-    };
-  } catch (error) {
-    console.error("Fetch error:", error);
+  //   return {
+  //     props: { data },
+  //   };
+  // } catch (error) {
+  //   console.error("Fetch error:", error);
 
-    return {
-      props: {
-        data: {},
-      },
-    };
-  }
-}
+  //   return {
+  //     props: {
+  //       data: {},
+  //     },
+  //   };
+  // }
+// }
